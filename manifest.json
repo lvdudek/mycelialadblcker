@@ -1,0 +1,30 @@
+{
+	"name": "MyceliumEverything",
+	"description": "Make mycelium grow on every image",
+	"author": "Laura Dudek, Gilles Ferone",
+	"manifest_version": 2,
+	"version": "1.4",
+	"browser_action": {
+		"default_title": "Mycelium Everything",
+		"default_popup": "index.html"
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"run_at": "document_end",
+			"js": ["scripts/Main.js"],
+			"all_frames": true
+		}
+	],
+	"web_accessible_resources": [
+    	"images/*.png"
+	],
+	"homepage_url": "https://github.com/lvdudek/mycelialadblcker",
+	"icons": {
+		"16": "Icon_01.png",
+		"48": "Icon_01.png",
+		"128": "Icon_01.pngg"
+	},
+	"permissions": ["storage"],
+	"short_name": "Mycelium Everything"
+}
