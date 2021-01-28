@@ -15,7 +15,12 @@
 	<body>
 		<input id="enabled" type="checkbox">
 		<label for="enabled">Enabled</label>
-		<input id="url" type="url" placeholder="https://example.com/image.png">
+		<input id="url" type="url" placeholder="https://example.com/image.png" hidden>
+		<br>
+		<input type="range" min="1" max="100" value="80" class="slider" id="opacity_speed">
+		<label for="opacity_speed"> Opacity Speed</label>
+		<input type="range" min="1" max="100" value="80" class="slider" id="size_speed">
+		<label for="size_speed"> size Speed</label>
 		<input id="submit" type="submit" value="Save">
 		<script src="scripts/Popup.js"></script>
 	</body>

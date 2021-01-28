@@ -1,9 +1,12 @@
 "use strict";
 
 function save() {
+	console.log("SAVE: ", document.getElementById("opacity_speed").value, document.getElementById("size_speed").value)
 	chrome.storage.sync.set({
 		enabled: document.getElementById("enabled").checked,
-		url: document.getElementById("url").value
+		url: document.getElementById("url").value,
+		opacitySpeed: document.getElementById("opacity_speed").value,
+		sizeSpeed: document.getElementById("size_speed").value
 	}, function() {
 		document.getElementById("submit").value = "Saved";
 	});
@@ -12,10 +15,14 @@ function save() {
 function restore() {
 	chrome.storage.sync.get({
 		enabled: false,
-		url: ""
+		url: "",
+		opacitySpeed: 80,
+		sizeSpeed: 80
 	}, function(items) {
 		document.getElementById("enabled").checked = items.enabled;
 		document.getElementById("url").value = items.url;
+		document.getElementById("opacity_speed").value = items.opacitySpeed,
+		document.getElementById("size_speed").value = items.sizeSpeed
 	});
 }
 
@@ -35,3 +42,5 @@ document.getElementById("submit").addEventListener("click", save);
 document.getElementById("enabled").addEventListener("click", changed);
 document.getElementById("url").addEventListener("input", changed);
 document.getElementById("url").addEventListener("keydown", enter);
+document.getElementById("opacity_speed").addEventListener("input", changed);
+document.getElementById("size_speed").addEventListener("input", changed);
